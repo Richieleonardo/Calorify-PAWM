@@ -26,6 +26,7 @@
         <category android:name="android.intent.category.BROWSABLE"/>
         <data android:scheme="myapp"/>
         <data android:scheme="com.richie79.Calorify"/>
+        <data android:scheme="exp+calorify"/>
       </intent-filter>
     </activity>
   </application>
