@@ -18,6 +18,8 @@ export default function LoginScreen() {
   const handleRegister = async () => {
     try{
       const kredensial = await signInWithEmailAndPassword(autentikasi, email, password);
+      // await AsyncStorage.setItem('email', email);
+      console.log(email);
       alert('Login Berhasil');
       navigation.navigate('home');
     }
