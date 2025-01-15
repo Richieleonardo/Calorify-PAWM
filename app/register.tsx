@@ -5,12 +5,11 @@ import { useNavigation } from '@react-navigation/native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import Calorify from '../components/calorify';
 import Button from '../components/button';
-import app from '../firebaseConfig';
+import { app, autentikasi } from '../firebaseConfig';
 import { getFirestore, doc, setDoc } from 'firebase/firestore';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 
 export default function LoginScreen() {
-  const autentikasi = getAuth(app); // Initialize authentication for database
   const db = getFirestore(app); // Initialize database
   const navigation = useNavigation<any>();
   const [username, setUsername] = React.useState('');
