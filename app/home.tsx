@@ -89,10 +89,12 @@ export default function HomeScreen() {
 
   const handleSubmit = async () => {
     try {
-      await addDoc(collection(database, "userData"), {
-        ...Data,
-        caloriesNeeded,
-        caloriesAccepted,
+      await addDoc(collection(database, "savedata_users"), {
+        CaloriesCount: caloriesAccepted,
+        Calory: caloriesNeeded,
+        CreatedAt: new Date(),
+        NamaKegiatan: Data.namaKegiatan,
+        User: "user",
       });
       console.log("Successfully Submitted!");
     } catch (error) {
@@ -213,9 +215,7 @@ export default function HomeScreen() {
                       : styles.option
                   }
                 ></View>
-                <Text style={styles.labelOption}>
-                  Hampir Tidak Pernah Berolahraga
-                </Text>
+                <Text style={styles.labelOption}>Tidak Berolahraga</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => handleInputChange("intensitas", "Jarang")}
@@ -368,7 +368,7 @@ export default function HomeScreen() {
           </View>
           <View style={styles.footer}>
             <Text style={styles.footerText}>
-              Anthony Bryant Gouw ( 18222033 ), Richie Leonardo ( 18222071 )
+              Anthony Bryant Gouw ( 18222033 ) Richie Leonardo ( 18222071 )
             </Text>
           </View>
           {/* <View style={styles.emptySpace}></View> */}
@@ -510,6 +510,7 @@ const styles = StyleSheet.create({
 
   optionGrouping: {
     marginBottom: 16,
+    alignItems: "center",
   },
 
   optionAvail: {
