@@ -117,7 +117,7 @@ export default function HomeScreen() {
     if (caloriesAccepted > caloriesNeeded) {
       return "Kebutuhan kalorimu telah melebihi target!";
     } else if (caloriesAccepted === caloriesNeeded) {
-      return "Kebutuhan kalorimu telah terpenuhi!";
+      return "Kebutuhan kalorimu belum diketahui!";
     } else {
       return "Kebutuhan kalorimu masih belum terpenuhi!";
     }
