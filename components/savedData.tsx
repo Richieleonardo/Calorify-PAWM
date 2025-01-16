@@ -48,9 +48,10 @@ const styles = StyleSheet.create({
         // justifyContent: 'center',
         // alignItems: 'center',
         width: 370,
-        height: 130,
+        height: 140,
         borderRadius: 15.2,
         backgroundColor: '#7077A1',
+        // padding: 5,
     },
     text: {
         fontSize: 24,
