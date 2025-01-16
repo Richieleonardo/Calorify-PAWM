@@ -2,13 +2,13 @@ import { initializeApp, getApps } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: "calorify-v3.firebaseapp.com",
-  projectId: "calorify-v3",
-  storageBucket: "calorify-v3.appspot.com",
-  messagingSenderId: "437839799724",
-  appId: "1:437839799724:web:559e7b6e4d1678c4bd8609",
-  measurementId: "G-SQGNDN1RT7",
+  apiKey: "YOUR API KEY",
+  authDomain: "YOUR AUTH DOMAIN",
+  projectId: "YOUR PROJECT ID",
+  storageBucket: "YOUR STORAGE BUCKET",
+  messagingSenderId: "YOUR MSG SENDER ID",
+  appId: "YOUR APP ID",
+  measurementId: "YOUR MEASURE ID"
 };
 
 // Initialize Firebase only if it hasn't been initialized already
