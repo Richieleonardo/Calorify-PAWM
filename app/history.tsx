@@ -89,11 +89,11 @@ export default function HistoryScreen() {
           <View style={styles.boxContainer}>
             <View style={[styles.box, {backgroundColor: '#BF594D'}]}>
               <Text style={styles.textBox}>Persentase Hari Kalori Terpenuhi</Text>
-              <Text style={[styles.textBox, { fontWeight: 'bold', fontSize: 24 }]}>{dayCalory}%</Text>
+              <Text style={[styles.textBox, { fontWeight: 'bold', fontSize: 24 }]}>{dayCalory.toFixed(2)}%</Text>
             </View>
             <View style={[styles.box, {backgroundColor: '#FFAF5D'}]}>
               <Text style={styles.textBox}>Persentase Hari Kalori Tidak Terpenuhi</Text>
-              <Text style={[styles.textBox, { fontWeight: 'bold', fontSize: 24 }]}>{dayNotCalory}%</Text>
+              <Text style={[styles.textBox, { fontWeight: 'bold', fontSize: 24 }]}>{dayNotCalory.toFixed(2)}%</Text>
             </View>
             <View style={[styles.box, {backgroundColor: '#025C87'}]}>
               <Text style={styles.textBox}>Jumlah Hari Yang Dianalisa</Text>

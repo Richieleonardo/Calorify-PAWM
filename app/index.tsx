@@ -54,6 +54,7 @@ export default function LoginScreen() {
         placeholderTextColor={"#ABABAB"}
         onChangeText = {password => setPassword(password)}
         value={password}
+        secureTextEntry={true}
         />
         <Button 
         width={327} 

@@ -13,20 +13,10 @@ import {
 } from "react-native";
 
 // Firebase Import
-import { initializeApp } from "firebase/app";
+import { app } from "../firebaseConfig";
+// import { initializeApp } from "firebase/app";
 import { getFirestore, addDoc, collection } from "firebase/firestore";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyBzhdfltkBvXa64Y4p-WczOVTs6A1_aBAc",
-  authDomain: "calorify-v3.firebaseapp.com",
-  projectId: "calorify-v3",
-  storageBucket: "calorify-v3.appspot.com",
-  messagingSenderId: "437839799724",
-  appId: "1:437839799724:web:559e7b6e4d1678c4bd8609",
-  measurementId: "G-SQGNDN1RT7",
-};
-
-const app = initializeApp(firebaseConfig);
 const database = getFirestore(app);
 
 export default function HomeScreen() {
