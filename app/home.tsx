@@ -89,10 +89,12 @@ export default function HomeScreen() {
 
   const handleSubmit = async () => {
     try {
-      await addDoc(collection(database, "userData"), {
-        ...Data,
-        caloriesNeeded,
-        caloriesAccepted,
+      await addDoc(collection(database, "savedata_users"), {
+        CaloriesCount: caloriesAccepted,
+        Calory: caloriesNeeded,
+        CreatedAt: new Date(),
+        NamaKegiatan: Data.namaKegiatan,
+        User: "user",
       });
       console.log("Successfully Submitted!");
     } catch (error) {
@@ -111,6 +113,16 @@ export default function HomeScreen() {
     });
     setcaloriesNeeded(0);
     setcaloriesAccepted(0);
+  };
+
+  const statusKebutuhanKalori = () => {
+    if (caloriesAccepted > caloriesNeeded) {
+      return "Kebutuhan kalorimu telah melebihi target!";
+    } else if (caloriesAccepted === caloriesNeeded) {
+      return "Kebutuhan kalorimu belum diketahui!";
+    } else {
+      return "Kebutuhan kalorimu masih belum terpenuhi!";
+    }
   };
 
   return (
@@ -134,12 +146,13 @@ export default function HomeScreen() {
             <Text style={styles.text1}>Apa itu CaloriFy?</Text>
             <Text style={styles.text2}>
               CaloriFy merupakan sebuah aplikasi Virtual Lab Olahraga yang
-              dibuat oleh Anthony Bryant Gouw ( 18222033 ) dengan tujuan utama
-              untuk mengedukasi mahasiswa tingkat pertama ( TPB ) Institut
-              Teknologi Bandung dalam menyediakan eksperimen virtual kebutuhan
-              kalori ideal yang dibutuhkan oleh manusia per hari berdasarkan
-              intensitas olahraga yang dilakukan oleh manusia. Kebutuhan kalori
-              ini dihitung dengan menggunakan rumus Harris-Benedict
+              dibuat oleh Anthony Bryant Gouw ( 18222033 ) dan Richie Leonardo (
+              18222071 ) dengan tujuan utama untuk mengedukasi mahasiswa tingkat
+              pertama ( TPB ) Institut Teknologi Bandung dalam menyediakan
+              eksperimen virtual kebutuhan kalori ideal yang dibutuhkan oleh
+              manusia per hari berdasarkan intensitas olahraga yang dilakukan
+              oleh manusia. Kebutuhan kalori ini dihitung dengan menggunakan
+              rumus Harris-Benedict
             </Text>
           </View>
 
@@ -202,9 +215,7 @@ export default function HomeScreen() {
                       : styles.option
                   }
                 ></View>
-                <Text style={styles.labelOption}>
-                  Hampir Tidak Pernah Berolahraga
-                </Text>
+                <Text style={styles.labelOption}>Tidak Berolahraga</Text>
               </TouchableOpacity>
               <TouchableOpacity
                 onPress={() => handleInputChange("intensitas", "Jarang")}
@@ -311,9 +322,7 @@ export default function HomeScreen() {
             <View style={styles.hasilAnalisa}>
               <Text style={styles.analysisText}>
                 Berdasarkan makanan yang telah kamu makan hari ini,{" "}
-                <Text style={styles.ubahState}>
-                  kebutuhan kalorimu belum diketahui!
-                </Text>
+                <Text style={styles.ubahState}>{statusKebutuhanKalori()}</Text>
               </Text>
             </View>
 
@@ -329,6 +338,18 @@ export default function HomeScreen() {
           </View>
 
           <View style={styles.emptySpace2}></View>
+          {/* CaloriFy History */}
+          <Text style={styles.historyText2}>
+            Mau tahu histori kalori kamu ?
+          </Text>
+          <View style={styles.historyContainer}>
+            <TouchableOpacity style={styles.historyText}>
+              <Text style={styles.buttonText}>
+                <Link href="/history">CaloriFy History {">"}</Link>
+              </Text>
+            </TouchableOpacity>
+          </View>
+
           {/* Testimony Part */}
           <Text style={styles.containerTitel2}>Testimony</Text>
           <View style={styles.testimonyContainer}>
@@ -345,17 +366,12 @@ export default function HomeScreen() {
               "Functional! a great app for learning PE"
             </Text>
           </View>
-
-          {/* CaloriFy History */}
-          <Text style={styles.containerTitel3}>Calorify History</Text>
-          <View style={styles.historyContainer}>
-            <TouchableOpacity style={styles.historyText}>
-              <Text style={styles.buttonText}>
-                <Link href="/history">Check History {">"}</Link>
-              </Text>
-            </TouchableOpacity>
+          <View style={styles.footer}>
+            <Text style={styles.footerText}>
+              Anthony Bryant Gouw ( 18222033 ) Richie Leonardo ( 18222071 )
+            </Text>
           </View>
-          <View style={styles.emptySpace}></View>
+          {/* <View style={styles.emptySpace}></View> */}
         </ScrollView>
       </View>
     </View>
@@ -494,6 +510,7 @@ const styles = StyleSheet.create({
 
   optionGrouping: {
     marginBottom: 16,
+    alignItems: "center",
   },
 
   optionAvail: {
@@ -623,6 +640,12 @@ const styles = StyleSheet.create({
     paddingLeft: 20,
   },
 
+  historyText2: {
+    color: "#7077a1",
+    fontSize: 20,
+    fontWeight: "bold",
+  },
+
   emptySpace: {
     height: 150,
   },
@@ -646,5 +669,18 @@ const styles = StyleSheet.create({
 
   testimonyText: {
     color: "#2d3250",
+  },
+
+  footer: {
+    backgroundColor: "#2d3250",
+    height: 200,
+    marginTop: 50,
+    width: "100%",
+  },
+
+  footerText: {
+    color: "#7077a1",
+    margin: 20,
+    width: 250,
   },
 });
