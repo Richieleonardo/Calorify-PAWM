@@ -1,16 +1,33 @@
-# Welcome to your Expo app 👋
-Tugas PAWM Calorify
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+# Welcome to your Expo app - CaloriFy 👋
+Tugas Besar pemenuhan Ujian Akhir Semester Mata Kuliah II3140 - PAWM Calorify   \
+This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app). 
+
+CaloriFy merupakan sebuah website Virtual Lab Olahraga yang dikembangkan oleh Anthony Bryant Gouw (18222033) dan Richie Leonardo (18222071). Website ini memiliki tujuan utama untuk mengedukasi mahasiswa tingkat pertama (TPB) Institut Teknologi Bandung tentang kebutuhan kalori harian yang ideal berdasarkan intensitas olahraga yang dilakukan oleh manusia. 
+
+Nama CaloriFy berasal dari dua kata, Calorie dan Clarify, yang mana sesuai dengan tujuan utama website dikembangkan yaitu untuk mengklarifikasi atau menjelaskan kalori yang dibutuhkan oleh manusia setiap harinya. Perhitungan kebutuhan kalori ini dilakukan dengan menggunakan rumus Harris-Benedict.
+
+**Kelompok 24 :** \
+**Richie Leonardo (18222071)** \
+**Anthony Bryant Gouw (18222033)**
 
 ## Get started
 
-1. Install dependencies
+1. Install the development build located in the expo.dev
+```link
+https://expo.dev/accounts/richie79/projects/Calorify/builds/39dbbc9d-5b08-45f5-8560-d1ebb2a3d9ce
+```
+or inside this google drive link
+```link
+https://drive.google.com/drive/folders/173oM07j9uSplx6R8kaKSUXbLvVkMzDHl?usp=drive_link
+```
+
+2. Install dependencies
 
    ```bash
    npm install
    ```
 
-2. Start the app
+3. Start the app
 
    ```bash
     npx expo start
@@ -25,15 +42,7 @@ In the output, you'll find options to open the app in a
 
 You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
 
-## Get a fresh project
-
-When you're ready, run:
-
-```bash
-npm run reset-project
-```
-
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+We suggest that you use android emulator by pressing **'a'** according to the guide after the app is started or install the development build inside your phone and then 
 
 ## Learn more
 
