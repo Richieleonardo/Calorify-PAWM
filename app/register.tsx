@@ -68,7 +68,7 @@ export default function LoginScreen() {
 
       <View style={styles.redirect}>
         <Text style={styles.textBiasa}>Belum punya akun?</Text>
-        <Link style={styles.textSignup} href="/login"> Login</Link>
+        <Link style={styles.textSignup} href="/"> Login</Link>
       </View>
 
       <Image style={styles.image} source={require('./../assets/images/boy_2.png')} />
