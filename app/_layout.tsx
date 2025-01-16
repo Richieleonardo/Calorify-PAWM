@@ -14,11 +14,11 @@ export default function RootLayout() {
         // },
         headerShown: false,
       }}>
-      <Stack.Screen name="login" options={{title: 'Login'}}/>
+      <Stack.Screen name="index" options={{title: 'Home Page'}} />
+      {/* <Stack.Screen name="login" options={{title: 'Login'}}/> */}
       <Stack.Screen name="register" options={{title: 'Register'}}/>
       <Stack.Screen name="history" options={{title: 'History'}}/>
       <Stack.Screen name="home" options={{title: 'Home'}}/>
-      {/* <Stack.Screen name="index" options={{title: 'Home Page'}} /> */}
       <Stack.Screen name="+not-found"/>
     </Stack>
   );
