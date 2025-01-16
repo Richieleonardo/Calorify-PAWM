@@ -1,6 +1,7 @@
 // React Import
 import { Link } from "expo-router";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import {
   View,
   Text,
@@ -87,6 +88,29 @@ export default function HomeScreen() {
     setcaloriesAccepted(caloriesAccepted + calories);
   };
 
+  const getData = async (key: string) => {
+    try {
+      const value = await AsyncStorage.getItem(key);
+      return value != null ? JSON.parse(value) : null;
+    } catch (error) {
+      console.error("Error getting item:", error);
+      return null;
+    }
+  };
+  const [email, setEmail] = React.useState("");
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const fetchEmail = await getData("email");
+        setEmail(fetchEmail || "No Email");
+      } catch (error) {
+        console.error("Error fetching email:", error);
+      }
+    };
+    fetchData();
+  }, []);
+
   const handleSubmit = async () => {
     try {
       await addDoc(collection(database, "savedata_users"), {
@@ -94,7 +118,7 @@ export default function HomeScreen() {
         Calory: caloriesNeeded,
         CreatedAt: new Date(),
         NamaKegiatan: Data.namaKegiatan,
-        User: "user",
+        User: email,
       });
       console.log("Successfully Submitted!");
     } catch (error) {
